@@ -25,7 +25,7 @@ class WeatherDataBody extends StatelessWidget {
         ),
         ListTile(
           contentPadding: const EdgeInsets.all(40),
-          leading: Image.asset("assets/images/clear.png"),
+          leading: Image.asset(weatherData!.getImage()),
           title: Center(
               child: Text(
             "${weatherData!.temp.toInt()}",
