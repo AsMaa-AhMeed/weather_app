@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/views/home_page.dart';
+import 'package:flutter/services.dart';
+
+import 'views/home_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
     return MaterialApp(
-      home: HomePage(),
+      home: HomeView(),
       debugShowCheckedModeBanner: false,
     );
   }
