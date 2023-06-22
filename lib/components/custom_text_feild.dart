@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class CustomTextFeild extends StatelessWidget {
-  CustomTextFeild({super.key, this.cityName});
-  String? cityName;
+  CustomTextFeild({super.key, required this.onSubmitted});
+  final void Function(String)? onSubmitted;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextField(
-        //    controller: nameController,
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
           color: Colors.black,
         ),
-        onSubmitted: (value) {
-          cityName = value;
-        },
+        onSubmitted: onSubmitted,
         decoration: InputDecoration(
             border: _buildBorder(),
             enabledBorder: _buildBorder(),

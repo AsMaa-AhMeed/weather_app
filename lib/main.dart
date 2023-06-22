@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/providers/weather_provider.dart';
 
 import 'views/home_view.dart';
 
@@ -15,9 +17,12 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
-    return MaterialApp(
-      home: HomeView(),
-      debugShowCheckedModeBanner: false,
+    return Provider(
+      create: (context) => WeatherProvider(),
+      child: MaterialApp(
+        home: HomeView(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
