@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextFeild extends StatelessWidget {
   CustomTextFeild({super.key, this.cityName});
   String? cityName;
