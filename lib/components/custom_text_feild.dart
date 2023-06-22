@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFeild extends StatelessWidget {
-  const CustomTextFeild({super.key});
-
+  CustomTextFeild({super.key, this.cityName});
+  String? cityName;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,6 +14,9 @@ class CustomTextFeild extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: Colors.black,
         ),
+        onSubmitted: (value) {
+          cityName = value;
+        },
         decoration: InputDecoration(
             border: _buildBorder(),
             enabledBorder: _buildBorder(),
