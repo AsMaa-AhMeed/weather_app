@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/components/components_export.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -6,15 +7,9 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextField(
-          //    controller: nameController,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'User Name',
-            hintText: 'Enter Your Name',
-          ),
-        ),
+        CustomTextFeild(),
       ],
     );
   }
