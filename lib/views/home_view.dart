@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/components/home_view_body.dart';
+import 'package:weather_app/models/weather_model.dart';
+import 'package:weather_app/provider/weather_provider.dart';
 import 'package:weather_app/views/views_export.dart';
 
+import '../components/weather_data_body.dart';
+
 class HomeView extends StatelessWidget {
+  WeatherModel? weatherData;
   @override
   Widget build(BuildContext context) {
+    weatherData = Provider.of<WeatherProvider>(context).weatherData;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weather App'),
@@ -23,37 +30,12 @@ class HomeView extends StatelessWidget {
               ))
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "Cairo",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "Updated: 16:11 PM",
-            style: TextStyle(fontSize: 18),
-          ),
-          ListTile(
-            contentPadding: const EdgeInsets.all(40),
-            leading: Image.asset("assets/images/cloudy.png"),
-            title: Center(
-                child: Text(
-              "30",
-              style: TextStyle(fontSize: 24),
-            )),
-            trailing: Column(children: [
-              Text("max: 30"),
-              Text("mix: 30"),
-            ]),
-          ),
-          Text(
-            "Clear",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 80)
-        ],
-      ),
+      body: weatherData == null
+          ? HomeViewBody()
+          : WeatherDataBody(
+              weatherData: weatherData,
+              cityName: Provider.of<WeatherProvider>(context).cityName!,
+            ),
     );
   }
 }
