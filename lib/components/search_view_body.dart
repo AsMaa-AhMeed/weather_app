@@ -6,8 +6,7 @@ import 'package:weather_app/providers/weather_provider.dart';
 import 'package:weather_app/services/weather_service.dart';
 
 class SearchViewBody extends StatelessWidget {
-  SearchViewBody({super.key, required this.updateUi});
-  final VoidCallback? updateUi;
+  SearchViewBody({super.key,});
   String? cityName;
   @override
   Widget build(BuildContext context) {
@@ -20,8 +19,8 @@ class SearchViewBody extends StatelessWidget {
             WeatherService service = WeatherService();
             WeatherModel weather =
                 await service.getWeather(cityName: cityName!);
-            Provider.of<WeatherProvider>(context).weatherData = weather;
-            updateUi!();
+            Provider.of<WeatherProvider>(context, listen: false).weatherData =
+                weather;
             Navigator.pop(context);
           },
         ),
@@ -29,4 +28,3 @@ class SearchViewBody extends StatelessWidget {
     );
   }
 }
-

@@ -2,18 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/components/home_view_body.dart';
 import 'package:weather_app/views/views_export.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  void updateUi() {
-    setState(() {});
-  }
-
+class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +14,7 @@ class _HomeViewState extends State<HomeView> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SearchView(updateUi: updateUi),
+                      builder: (context) => SearchView(),
                     ));
               },
               icon: const Icon(

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
-    return Provider(
+    return ChangeNotifierProvider(
       create: (context) => WeatherProvider(),
       child: MaterialApp(
         home: HomeView(),
