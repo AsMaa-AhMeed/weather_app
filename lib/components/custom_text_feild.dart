@@ -9,6 +9,11 @@ class CustomTextFeild extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: TextField(
         //    controller: nameController,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: Colors.black,
+        ),
         decoration: InputDecoration(
             border: _buildBorder(),
             enabledBorder: _buildBorder(),
@@ -16,6 +21,8 @@ class CustomTextFeild extends StatelessWidget {
             labelText: 'Search',
             labelStyle: const TextStyle(color: Colors.orange),
             hintText: 'Enter City Name',
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
             suffixIcon: const Icon(
               Icons.search,
               color: Colors.orange,
