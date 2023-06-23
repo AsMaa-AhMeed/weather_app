@@ -6,7 +6,8 @@ import 'package:weather_app/provider/weather_provider.dart';
 import 'views/home_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => WeatherProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,12 +18,16 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
-    return ChangeNotifierProvider(
-      create: (context) => WeatherProvider(),
-      child: MaterialApp(
-        home: HomeView(),
-        debugShowCheckedModeBanner: false,
-      ),
+    return MaterialApp(
+      theme: ThemeData(
+          primarySwatch:
+              Provider.of<WeatherProvider>(context).weatherData == null
+                  ? Colors.blue
+                  : Provider.of<WeatherProvider>(context)
+                      .weatherData!
+                      .getThemeColor()),
+      home: HomeView(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

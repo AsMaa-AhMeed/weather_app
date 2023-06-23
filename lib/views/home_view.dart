@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weather App'),
+        elevation: 0.0,
         actions: [
           IconButton(
               onPressed: () {
@@ -31,7 +32,7 @@ class HomeView extends StatelessWidget {
         ],
       ),
       body: weatherData == null
-          ? HomeViewBody()
+          ? const HomeViewBody()
           : WeatherDataBody(
               weatherData: weatherData,
               cityName: Provider.of<WeatherProvider>(context).cityName!,
