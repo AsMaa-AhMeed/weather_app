@@ -12,7 +12,17 @@ class WeatherDataBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: weatherData!.getThemeColor(),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          weatherData!.getThemeColor(),
+          weatherData!.getThemeColor()[500]!,
+          weatherData!.getThemeColor()[300]!,
+          weatherData!.getThemeColor()[100]!,
+        ],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
