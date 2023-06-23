@@ -7,8 +7,11 @@ import 'package:weather_app/views/views_export.dart';
 
 import '../components/weather_data_body.dart';
 
+// ignore: must_be_immutable
 class HomeView extends StatelessWidget {
   WeatherModel? weatherData;
+
+  HomeView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

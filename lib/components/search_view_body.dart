@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/components/components_export.dart';
 import 'package:weather_app/cubits/weather_cubit/weather_cubit.dart';
 
+// ignore: must_be_immutable
 class SearchViewBody extends StatelessWidget {
   SearchViewBody({
     super.key,
