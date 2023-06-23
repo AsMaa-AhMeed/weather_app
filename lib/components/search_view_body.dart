@@ -19,7 +19,7 @@ class SearchViewBody extends StatelessWidget {
           onSubmitted: (value) async {
             cityName = value;
             WeatherService service = WeatherService();
-            WeatherModel weather =
+            WeatherModel? weather =
                 await service.getWeather(cityName: cityName!);
             Provider.of<WeatherProvider>(context, listen: false).weatherData =
                 weather;
@@ -32,7 +32,7 @@ class SearchViewBody extends StatelessWidget {
           },
           onPressed: () async {
             WeatherService service = WeatherService();
-            WeatherModel weather =
+            WeatherModel? weather =
                 await service.getWeather(cityName: cityName!);
             Provider.of<WeatherProvider>(context, listen: false).weatherData =
                 weather;
