@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weather App'),
+        centerTitle: true,
         elevation: 0.0,
         actions: [
           IconButton(

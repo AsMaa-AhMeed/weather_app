@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFeild extends StatelessWidget {
-  CustomTextFeild({super.key, required this.onSubmitted});
+  const CustomTextFeild(
+      {super.key,
+      required this.onSubmitted,
+      required this.onChanged,
+      this.onPressed});
   final void Function(String)? onSubmitted;
+  final void Function(String)? onChanged;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +20,7 @@ class CustomTextFeild extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: Colors.black,
         ),
+        onChanged: onChanged,
         onSubmitted: onSubmitted,
         decoration: InputDecoration(
             border: _buildBorder(),
@@ -24,9 +31,12 @@ class CustomTextFeild extends StatelessWidget {
             hintText: 'Enter City Name',
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-            suffixIcon: const Icon(
-              Icons.search,
-              color: Colors.orange,
+            suffixIcon: IconButton(
+              icon: const Icon(
+                Icons.search,
+                color: Colors.orange,
+              ),
+              onPressed: onPressed,
             )),
       ),
     );
